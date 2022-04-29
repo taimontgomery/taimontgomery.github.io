@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Snakemake</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>SnakemakeTutorial</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14515,25 +14515,27 @@ a.anchor-link {
 
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Snakemake">Snakemake<a class="anchor-link" href="#Snakemake">&#182;</a></h1><p>Snakemake is a workflow management system. It is used to make computational worfklows that are well documented and reproducible.  It is especially useful if you have complicated workflows with multiple tools and paremeters.  Workflows are resuable and customizable and also very portable</p>
+<h1 id="Snakemake">Snakemake<a class="anchor-link" href="#Snakemake">&#182;</a></h1><p>Snakemake is a workflow management system. It is used to make computational worfklows that are well documented and reproducible.  It is especially useful if you have complicated workflows with multiple tools and paremeters.  Workflows are resuable and customizable and also very portable.</p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Getting-Started-in-Snakemake">Getting Started in Snakemake<a class="anchor-link" href="#Getting-Started-in-Snakemake">&#182;</a></h2><p>See the Snakemake documentation page for details: <a href="https://snakemake.readthedocs.io/en/stable/index.html">https://snakemake.readthedocs.io/en/stable/index.html</a></p>
+<hr>
+<h2><font color=blue> Getting Started in Snakemake</font></h2>
+<p>See the Snakemake documentation page for details: <a href="https://snakemake.readthedocs.io/en/stable/index.html">https://snakemake.readthedocs.io/en/stable/index.html</a></p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Install-Snakemake">Install Snakemake<a class="anchor-link" href="#Install-Snakemake">&#182;</a></h3><p>The easiest way to install Snakemake is with conda as follows:</p>
+<h2 id="Install-Snakemake">Install Snakemake<a class="anchor-link" href="#Install-Snakemake">&#182;</a></h2><p>The easiest way to install Snakemake is with conda as follows:</p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><strong>Step 1:</strong> Create a new conda environment on the rna server (see server connection instructions):</p>
+<p><strong>Step 1:</strong> Create a new conda environment:</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -14544,8 +14546,8 @@ a.anchor-link {
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span> <span class="n">Snake</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.6</span>
 <span class="n">conda</span> <span class="n">activate</span> <span class="n">Snake</span>
-<span class="n">conda</span> <span class="n">install</span> <span class="n">conda</span>
-<span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">anaconda</span> <span class="n">graphviz</span>
+<span class="n">conda</span> <span class="n">install</span> <span class="n">conda</span> <span class="c1"># usually not necessary but addresses a common bug</span>
+<span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">anaconda</span> <span class="n">graphviz</span> <span class="c1"># only necessary for generating a workflow diagram</span>
 </pre></div>
 
      </div>
@@ -14556,7 +14558,7 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><strong>Step 2:</strong> Install Snakemake within the Snake environment:</p>
+<p><strong>Step 2:</strong> Install Snakemake within the <code>Snake</code> environment:</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -14576,7 +14578,7 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Clone-a-Snakemake-Template-from-GitHub">Clone a Snakemake Template from GitHub<a class="anchor-link" href="#Clone-a-Snakemake-Template-from-GitHub">&#182;</a></h3><p>This is an optional step.  The template includes the minimal GitHub-ready files for a Snakemake workflow:</p>
+<h2 id="Clone-a-Snakemake-Template-from-GitHub">Clone a Snakemake Template from GitHub<a class="anchor-link" href="#Clone-a-Snakemake-Template-from-GitHub">&#182;</a></h2><p>This is an optional step.  The template includes the minimal GitHub-ready files for a Snakemake workflow:</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -14596,12 +14598,34 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Writing-Snakemake-Workflows">Writing Snakemake Workflows<a class="anchor-link" href="#Writing-Snakemake-Workflows">&#182;</a></h2>
+<p>If you clone the repository, change into the <code>SnakemakeTutorial</code> directory and explore the contents using the <code>ls</code> command:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cd</span> <span class="n">SnakemakeTutorial</span><span class="o">/</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr>
+<h2><font color=blue> Writing Snakemake Workflows</font></h2>
+
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Part-1.-A-basic-introduction-using-cat.">Part 1. A basic introduction using cat.<a class="anchor-link" href="#Part-1.-A-basic-introduction-using-cat.">&#182;</a></h2><p>Let's start with a very simple workflow that combines two files into one.</p>
+<h2 id="Part-1.-A-basic-introduction-using-cat.">Part 1. A basic introduction using cat.<a class="anchor-link" href="#Part-1.-A-basic-introduction-using-cat.">&#182;</a></h2><p>Let's start with a very simple workflow that combines two files into one using the <code>cat</code> command.</p>
 
 </div>
 </div>
@@ -14612,7 +14636,7 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><strong>1.</strong> Each step in a snakemake workflow is called a rule so our workflow will have 3 rules.  Rules are written in a Snakefile. Create a file called Snakefile_cat on you own computer using a text editor.</p>
+<p><strong>1.</strong> Each step in a snakemake workflow is called a rule.  This workflow will only have 1 rule but below we'll see a more complex example.  Rules are written in a Snakefile. Create a file called <code>Snakefile_cat</code> on your own computer using a text editor or use <code>Snakefile</code> from the <code>SnakemakeTutorial</code> repository.</p>
 
 </div>
 </div>
@@ -14643,16 +14667,16 @@ a.anchor-link {
 <span class="sd">    Each input and output file is specified as follows:</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="nb">input</span><span class="p">:</span>
-        <span class="n">file1</span><span class="o">=</span><span class="s2">&quot;seq1.txt&quot;</span><span class="p">,</span> <span class="c1"># commas are used to separate items</span>
-        <span class="n">file2</span><span class="o">=</span><span class="s2">&quot;seq2.txt&quot;</span>
+        <span class="n">fin1</span><span class="o">=</span><span class="s2">&quot;seq1.txt&quot;</span><span class="p">,</span> <span class="c1"># commas are used to separate items</span>
+        <span class="n">fin2</span><span class="o">=</span><span class="s2">&quot;seq2.txt&quot;</span>
     <span class="n">output</span><span class="p">:</span>
-        <span class="n">file3</span><span class="o">=</span><span class="s2">&quot;seq_cat.txt&quot;</span>
+        <span class="n">fout</span><span class="o">=</span><span class="s2">&quot;seq_cat.txt&quot;</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Within the shell directive, specify the command line code for the task.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="n">shell</span><span class="p">:</span>
-        <span class="s2">&quot;cat </span><span class="si">{input.file1}</span><span class="s2"> </span><span class="si">{input.file2}</span><span class="s2"> &gt;</span><span class="si">{output.file3}</span><span class="s2">&quot;</span> <span class="c1"># variables are called with dot notation referencing</span>
-                                                          <span class="c1"># the directive and enclosed in &quot;{}&quot;</span>
+        <span class="s2">&quot;cat </span><span class="si">{input.fin1}</span><span class="s2"> </span><span class="si">{input.fin2}</span><span class="s2"> &gt;</span><span class="si">{output.fout}</span><span class="s2">&quot;</span> <span class="c1"># variables are called with dot notation referencing</span>
+                                                       <span class="c1"># the directive and enclosed in &quot;{}&quot;</span>
 </pre></div>
 
      </div>
@@ -14674,12 +14698,12 @@ a.anchor-link {
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">rule</span> <span class="n">cat</span><span class="p">:</span>
     <span class="nb">input</span><span class="p">:</span>
-        <span class="n">file1</span><span class="o">=</span><span class="s2">&quot;seq1.txt&quot;</span><span class="p">,</span>
-        <span class="n">file2</span><span class="o">=</span><span class="s2">&quot;seq2.txt&quot;</span>
+        <span class="n">fin1</span><span class="o">=</span><span class="s2">&quot;seq1.txt&quot;</span><span class="p">,</span>
+        <span class="n">fin2</span><span class="o">=</span><span class="s2">&quot;seq2.txt&quot;</span>
     <span class="n">output</span><span class="p">:</span>
-        <span class="n">file3</span><span class="o">=</span><span class="s2">&quot;seq_cat.txt&quot;</span>
+        <span class="n">fout</span><span class="o">=</span><span class="s2">&quot;seq_cat.txt&quot;</span>
     <span class="n">shell</span><span class="p">:</span>
-        <span class="s2">&quot;cat </span><span class="si">{input.file1}</span><span class="s2"> </span><span class="si">{input.file2}</span><span class="s2"> &gt;</span><span class="si">{output.file3}</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;cat </span><span class="si">{input.fin1}</span><span class="s2"> </span><span class="si">{input.fin2}</span><span class="s2"> &gt;</span><span class="si">{output.fout}</span><span class="s2">&quot;</span>
 </pre></div>
 
      </div>
@@ -14690,19 +14714,13 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><strong>2.</strong> Copy the code from above into the Snakefile_cat file.</p>
+<p><strong>2.</strong> Copy the code from above into the <code>Snakefile</code>.</p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><strong>3.</strong> Transfer the Snakemake_cat file onto the rna server.</p>
-
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><strong>4.</strong> Create seq1.txt and seq2.txt files in your directory on the server using the following Linux commands:</p>
+<p><strong>3.</strong> Create <code>seq1.txt</code> and <code>seq2.txt</code> files in your directory on the server using the following Linux commands:</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -14723,7 +14741,7 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><strong>5.</strong> Now that we have the required input files on the server, run snakemake using the following command:</p>
+<p><strong>4.</strong> Now that we have the required input files on the server, run snakemake using one of the following commands depending on the name of your file:</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -14733,6 +14751,10 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">snakemake</span> <span class="o">-</span><span class="n">s</span> <span class="n">Snakefile_cat</span>
+
+<span class="ow">or</span> 
+
+<span class="n">snakemake</span> <span class="n">Snakefile</span>
 </pre></div>
 
      </div>
@@ -14743,29 +14765,29 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><strong>6.</strong> The -s flag specifies that we are using a custom named snakefile (snakemake will look for a file called Snakefile if the -s flag is absent).</p>
+<p>The <code>-s</code> flag is only necessary if you're using a custom named snakefile (snakemake will look for a file called <code>Snakefile</code> if the <code>-s</code> flag is absent).</p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Part-2.-A-read-mapping-workflow.">Part 2. A read-mapping workflow.<a class="anchor-link" href="#Part-2.-A-read-mapping-workflow.">&#182;</a></h2><p>Now let's write a slighly more complicated workflow to map reads to a reference genome and then prepare the data for visualization in IGV.</p>
+<h2 id="Part-2.-A-read-mapping-workflow.">Part 2. A read-mapping workflow.<a class="anchor-link" href="#Part-2.-A-read-mapping-workflow.">&#182;</a></h2><p>Now let's write a slighlty more complex workflow to map reads to a reference genome and then prepare the data for visualization in the genome viewing software IGV.</p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Our-pipeline-will-have-3-computational-steps-that-we-will-write-a-workflow-to-accomplish:">Our pipeline will have 3 computational steps that we will write a workflow to accomplish:<a class="anchor-link" href="#Our-pipeline-will-have-3-computational-steps-that-we-will-write-a-workflow-to-accomplish:">&#182;</a></h3><ul>
-<li>Align reads from sRNA-seq date for 2 conditions, cond1 and cond2, each with three biological replicates (rep1, rep2, and rep3), to a reference genome (output file with alignment data in bam format).</li>
+<li>Align reads from small RNA-seq date for 2 conditions, cond1 and cond2, each with three biological replicates (rep1, rep2, and rep3), to a reference genome (output file with alignment data in bam format).</li>
 <li>Sort reads by position for easier look up.</li>
-<li>Create a bowtie index (basically a table of contents that accompanies the bam file).</li>
+<li>Create an index (basically a table of contents that accompanies the bam file).</li>
 </ul>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><strong>1.</strong> Our first rule will accomplish step 1 of our pipeline: aligning sRNA-seq reads to a reference genome. For this we will use bowtie2. Copy the code below into a new Snakemake file, which you can just call Snakemake:</p>
+<p><strong>1.</strong> Our first rule will accomplish step 1 of our pipeline: aligning small RNA-seq reads to a reference genome. For this we will use <code>bowtie2</code>. Copy the code below into the <code>Snakemake</code> file in the repository (after deleting any other contents in the file) or create a new file.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -14782,7 +14804,7 @@ a.anchor-link {
     <span class="n">conda</span><span class="p">:</span>
         <span class="s2">&quot;envs/mapping.yml&quot;</span>
     <span class="n">shell</span><span class="p">:</span>
-        <span class="s2">&quot;bowtie2 -x resources/ram1 </span><span class="si">{input.sample}</span><span class="s2"> | samtools view -b - &gt; </span><span class="si">{output.bam}</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;bowtie2 -x resources/ram1 </span><span class="si">{input.sample}</span><span class="s2"> | samtools view -bS -o </span><span class="si">{output.bam}</span><span class="s2">&quot;</span>
 </pre></div>
 
      </div>
@@ -14793,19 +14815,19 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>There's an extra directive in this code called <code>conda</code>.  This is used to specify which version of software to use for this rule. The paremeter is a YAML file called <code>bowtie.yml</code> within the <code>envs</code> directory that contains all of the software needed for this workflow. Snakemake will check to see if the software is installed and install it if needed. How would you modify the the yaml file if you wanted to use different software?</p>
+<p>There's an extra directive in this code called <code>conda</code>.  This is used to specify which version of software to use for this rule. The paremeter is a <a href="https://en.wikipedia.org/wiki/YAML">YAML</a> file called <code>mapping.yml</code> within the <code>envs</code> directory that contains all of the software needed for this workflow. Snakemake will check to see if the software is installed and install it if needed. How would you modify <code>mapping.yml</code> if you wanted to use different software?</p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Our code so far is not very efficient because we would need to run it separately for each library.  There are a couple ways around this.  I like to include a separate file, called a configuration file,  that contains information on the samples.  That allows me to change the file names without having to edit Snakemake file each time I run it.</p>
+<p>Our code so far is not very efficient because we would need to run it separately for each library.  There are a couple ways around this.  I like to include a separate file, called a <a href="https://en.wikipedia.org/wiki/Configuration_file">configuration file</a>, that contains paremeters for the workflow, including file name.  That allows me to change the file names without having to edit Snakemake file each time I run it.</p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><strong>2.</strong> Create a new file in a text editor. Name the file config.yml and copy the following text to it:</p>
+<p><strong>2.</strong> Open <code>config.yml</code> within the repository, or creater your own, and copy the following text to it:</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -14831,13 +14853,13 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>In this configuration file, samples is a list of file prefixes with each file within the list being indented with 2 spaces, a syntax feature of YAML. Now when we run snakemake from the command line, we'll use the flag <code>--configfile</code> to direct the workflow to <code>config.yml</code>.</p>
+<p>In this configuration file, samples is a list of file prefixes with each file within the list being indented with 2 spaces, a syntax feature of YAML. Now when we run snakemake from the command line, we'll use the flag <code>--configfile</code> to direct the workflow to <code>config.yml</code>, which we'll see at the end of this tutorial.</p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><strong>3.</strong> Now we can retrieve the file prefixes from <code>config.yml</code>.  We'll need another rule, <code>all</code>, to do so:</p>
+<p><strong>3.</strong> Now we can retrieve the file prefixes from <code>config.yml</code>.  We'll need to add another rule, <code>all</code>, to the beginning of our snakefile to accomplish this:</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -14859,7 +14881,7 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><code>all</code> is a special rule for handling this type of situation but is only run when file names are not passed to the workflow from the command line (which we won't discuss). The <code>expand()</code> function will generate every possible combination of file names with the wildcard, in this case <code>{sample}</code>, where the value of the wildcard is retrieved  from the configuration file with the second argument in the function, <code>sample=config["samples"]</code>.</p>
+<p><code>all</code> is a special rule for handling this type of situation. The <code>expand()</code> function will generate every possible combination of file names with the wildcard, in this case <code>{sample}</code>, where the value of the wildcard is retrieved  from the configuration file with the second argument in the function, <code>sample=config["samples"]</code>. <code>config</code> will retrieve each value under the key <code>samples</code> from the configuration file, which will be sequentially inserted in place of the wildcard <code>{sample}</code> in the first argument. Snakemake will then iterate over the other rules specified until it runs out of values.</p>
 
 </div>
 </div>
@@ -14882,7 +14904,7 @@ a.anchor-link {
     <span class="n">conda</span><span class="p">:</span>
         <span class="s2">&quot;envs/mapping.yml&quot;</span>
     <span class="n">shell</span><span class="p">:</span>
-        <span class="s2">&quot;bowtie2 -x resources/ram1 </span><span class="si">{input.sample}</span><span class="s2"> | samtools view -b - &gt; </span><span class="si">{output.bam}</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;bowtie2 -x resources/ram1 </span><span class="si">{input.sample}</span><span class="s2"> | samtools view -bS -o </span><span class="si">{output.bam}</span><span class="s2">&quot;</span>
 </pre></div>
 
      </div>
@@ -14893,7 +14915,7 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The <code>all</code> rule will essentially iterate over the <code>map_reads</code> rule until it runs out of values for <code>{sample}</code>.</p>
+<p>Now the <code>all</code> rule will essentially iterate over the <code>map_reads</code> rule until it runs out of values for <code>{sample}</code>.</p>
 
 </div>
 </div>
@@ -14920,7 +14942,7 @@ a.anchor-link {
     <span class="n">conda</span><span class="p">:</span>
         <span class="s2">&quot;envs/mapping.yml&quot;</span>
     <span class="n">shell</span><span class="p">:</span>
-        <span class="s2">&quot;bowtie2 -x resources/ram1 </span><span class="si">{input.sample}</span><span class="s2"> | samtools view -b - &gt; </span><span class="si">{output.bam}</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;bowtie2 -x resources/ram1 </span><span class="si">{input.sample}</span><span class="s2"> | samtools view -bS -o </span><span class="si">{output.bam}</span><span class="s2">&quot;</span>
 </pre></div>
 
      </div>
@@ -14931,7 +14953,7 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><strong>5.</strong> Next we'll add another rule in which we'll sort the reads in the bam file based on their genomic coordinates, which is often required for downstream software, such as genome browsers. For this we'll use the <code>samtools sort</code>:</p>
+<p><strong>5.</strong> Next we'll add another rule in which we'll sort the reads in the bam file based on their genomic coordinates, which is often required for downstream software, such as genome browsers. For this we'll use <code>samtools sort</code>:</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -15073,13 +15095,13 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>We now have a workflow that we could use to map reads and prep them for plotting in a genome browser.  If we want to modify the workflow paremeters we can save it as a new file.  We can always edit our configuration file to include different samples.</p>
+<p>We now have a workflow that we could use to map reads and prep them for plotting in a genome browser.  We can  edit our configuration file to include different samples wihout having to change the <code>Snakefile</code> from run to run.</p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><strong>8.</strong> Now let's edit the configuration file so that the reference genome, which in our example is <code>ram1</code>, can be referenced there instead of within the Snakemake, which will make our workflow even more general. Add the followin line of code to the end of <code>config.yml</code>:</p>
+<p><strong>8.</strong> Now let's edit the configuration file so that the reference genome, which in our example is <code>ram1</code>, can be referenced there instead of within the Snakemake, which will make our workflow even more general. Add the following line of code to the end of <code>config.yml</code>:</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -15148,6 +15170,27 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><strong>10.</strong> We also need to modify the <code>shell</code> directive in the <code>map_reads</code> rule to reference the new parameter:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">shell</span><span class="p">:</span>
+    <span class="s2">&quot;bowtie2 -x </span><span class="si">{params.bowtie_index}</span><span class="s2"> </span><span class="si">{input.sample}</span><span class="s2"> | samtools view -bS -o </span><span class="si">{output.bam}</span><span class="s2">&quot;</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>You're Snakemake should now look like this:</p>
 
 </div>
@@ -15202,7 +15245,7 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><strong>10.</strong> You'll notice when you run the workflow that a lot of information appears in the terminal.  This is often valuable information that you will want to save. With Snakemake you can capture this information by including another directive called <code>log</code> within a rule you want to capture terminal output from.  When you run bowtie2 it displays a summary of the alignment results in the terminal.  Let's capture this information in a log file so that its not lost when we close the terminal.</p>
+<p><strong>11.</strong> You'll notice when you run the workflow (we'll get to that soon) that a lot of information appears in the terminal.  This is often valuable information that you will want to save. With Snakemake you can capture this information by including another directive called <code>log</code> within a rule you want to capture terminal output from.  When you run <code>bowtie2</code> it displays a summary of the alignment results in the terminal.  Let's capture this information in a <a href="https://en.wikipedia.org/wiki/Logging_(software">log file</a>) so that it's not lost when we close the terminal.</p>
 
 </div>
 </div>
@@ -15235,7 +15278,7 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Next we're going to add some cryptic code to the <code>shell</code> directive to direct the terminal output to the <code>.log</code> file:</p>
+<p>Next we're going to add some cryptic code (<code>2&gt;</code>) for redirecting <a href="https://en.wikipedia.org/wiki/Standard_streams">standard error</a> to the <code>shell</code> directive to direct the terminal output to the <code>.log</code> file:</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -15338,7 +15381,27 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>And finally, let's run it.  Copy the code below to your terminal:</p>
+<p>We'll do a quick dry run to check for errors as follows, where the <code>-n</code> flag specifies that this is a dry run:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">snakemake</span> <span class="o">-</span><span class="n">n</span> <span class="o">--</span><span class="n">use</span><span class="o">-</span><span class="n">conda</span> <span class="o">--</span><span class="n">configfile</span> <span class="n">config</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>And finally, let's run it for real, assuming there are no error messages.  Copy the code below to your terminal:</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -15355,6 +15418,18 @@ a.anchor-link {
 </div>
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>The <code>--use-conda</code> flag specifies that the code should be run in a <code>conda</code> environment, which is necessary here since we're relying on the <code>bowtie2</code> and <code>samtools</code> software to be installed within a <code>conda</code> environment.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>As mentioned above, the <code>--config</code> flag allows us to specify a configuration file.</p>
+
+</div>
 </div>
 </body>
 
